@@ -1,101 +1,150 @@
+"use strict";
+import Principal from "@/components/Principal";
 import Image from "next/image";
+import { FaFacebookF } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import logo from "../../public/assets/logo.png";
+import Navbar from "@/components/Navbar";
+import Slideshow from "@/components/Slideshow";
+import Anouncement from "@/components/Anouncement";
+import pricipal from '../../public/assets/Principal.svg';
+import About from "@/components/About";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+
+
+
+
+  return (
+   <>
+   <div className={"w-full flex justify-center bg-black h-[50px] "}>
+        <div className="w-[80%] flex items-center gap-4">
+        <FaFacebookF color="#4267B2"/>
+        <FaYoutube color="#FF0000"/>
+        <div className="flex items-center gap-4">
+        <FaPhoneAlt color="#fff"/>
+        <span className="text-white">+91 1234567890</span>
+        <span className="text-white">+91 1234567890</span>
+        <span className="text-white">+91 1234567890</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+   </div>
+   <div className="h-[180px] w-full flex justify-center">
+   <div className="w-[80%] p-4 flex justify-between">
+    <div className="flex gap-4">
+    <div className="md:w-[100px] w-[80px] flex items-center">
+    <Image src={logo} alt="logo" width={100}/>
     </div>
+    <div className="flex flex-col justify-center">
+    <h1 className="text-3xl font-bold text-teal-800">Kingswood Public School</h1>
+    <p className="text-teal-700">Bulandshahr</p>
+    </div>
+    </div>
+
+      <Navbar/>
+   
+   </div>
+   </div>
+   <div>
+
+    <Anouncement />
+
+   </div>
+
+   <div className="w-full flex justify-center">
+    <Slideshow />
+    </div>
+
+    <div className="w-full relative min-h-[50vh] containerAbout">
+        <div className="custom-shape-divider-top-1730623775">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
+        </svg>
+    </div>
+
+    <div className="w-[80%] mx-auto">
+
+          <div className="mt-28 relative w-full">
+        
+          <h1 className="text-white">About KPS</h1>
+
+            <About/>
+            
+          </div>
+
+          <div className="custom-shape-divider-bottom-1730628643">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
+    </svg>
+</div>
+
+    </div>
+    </div>
+    <div className="w-full">
+
+        <div className="w-[80%] mx-auto">
+
+            <h1 className="mt-8 mr-32 text-right">Principal&apos;s Desk</h1>
+
+          <Principal/>
+         
+     </div>
+
+
+    </div>
+    <div className="flex justify-center">
+    <div className="w-[80%]">
+      <h1>Gallery</h1>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+       {Array.from({ length: 5 }).map((_, index) => (
+    <div key={index} className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden">
+      <Image
+        src={`https://flowbite.s3.amazonaws.com/docs/gallery/square/image-${index}.jpg`}
+        alt=""
+        fill
+        className="object-cover"
+      />
+    </div>
+  ))}
+      <button className="bg-teal-500 text-white font-bold">Go To Gallery-&gt;</button>
+      
+  </div>
+      </div>
+    </div>
+  
+    <div>
+        <section className="spikes text-white mt-8 flex justify-center">
+            <div className="w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 z-[1000]">
+                <div>
+                    <h1>About KPS</h1>
+                    <ul className="px-4">
+                        <li>Faculty Members</li>
+                        <li>Career</li>
+                        <li>Photo Gallery</li>
+                    </ul>
+                </div>
+                 <div>
+                    <h1>Reach Us</h1>
+                    <div className="px-4">
+                    <p>Kingswood Public School, Bulandshahr(UP)</p>
+                    <p>Pin Code: 203001</p>
+                    <p>+91 9457077164</p>
+                    <p>contact_us@kingswood.com</p>
+                    </div>
+                </div>
+                 <div>
+                    <h1>Location Map</h1>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4011.8123693297543!2d77.83219191155952!3d28.413417375684205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ca353589f1623%3A0xfec56659a5810cf9!2sKINGSWOOD%20PUBLIC%20SCHOOL!5e1!3m2!1sen!2sin!4v1731587925142!5m2!1sen!2sin" width="400" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+ 
+            </div>
+      </section>
+    </div>
+
+
+   </>
   );
 }

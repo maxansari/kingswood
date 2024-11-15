@@ -3,19 +3,150 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+ font-family: 'Open Sans', sans-serif;
+ 
 }
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Playfair Display', serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+
+/* Custom Shape Divider */
+
+
+
+
+
+
+.custom-shape-divider-top-1730623775 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  
+}
+
+.custom-shape-divider-top-1730623775 svg {
+  position: relative;
+  display: block;
+  width: calc(139% + 1.3px);
+  height: 172px;
+}
+
+.custom-shape-divider-top-1730623775 .shape-fill {
+  fill: #FFFFFF;
+}
+
+
+.custom-shape-divider-bottom-1730628643 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1730628643 svg {
+  position: relative;
+  display: block;
+  width: calc(139% + 1.3px);
+  height: 172px;
+}
+
+.custom-shape-divider-bottom-1730628643 .shape-fill {
+  fill: #FFFFFF;
+}
+
+
+.containerAbout {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #3498db,
+    #2ecc71
+  ); /* Gradient background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  position: relative;
+  overflow: hidden;
+}
+
+.containerAbout::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none; /* Allow clicking through the pattern layer */
+}
+
+
+.spikes {
+  position: relative;
+  background: #14b8a6;
+  height: 50vh;
+}
+
+.spikes::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  left: -0%;
+  top:0;
+  z-index: 10;
+  display: block;
+  height: 40px;
+  background-size: 40px 100%;
+  background-image: linear-gradient(135deg, white 25%, transparent 25%), linear-gradient(225deg, white 25%, transparent 25%);
+  background-position: 0 0;
+}
+
+
