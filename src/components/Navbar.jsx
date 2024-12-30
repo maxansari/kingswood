@@ -55,7 +55,7 @@ const Navbar = () => {
   </button>
     
     {isOpen && (
-        <div className="md:hidden absolute top-0 left-0 flex h-full w-full bg-blue-900 text-white p-4">
+        <div className="z-1000 md:hidden absolute top-0 left-0 flex h-full w-full bg-blue-900 text-white p-4">
             <ul className="flex flex-col gap-4">
                 <li className="text-center">Home</li>
                 <li>About Us</li>
@@ -65,17 +65,17 @@ const Navbar = () => {
             </ul>
             <button onClick={handleClick} 
   className="flex md:hidden flex-col justify-center items-center absolute top-4 right-4">
-        <span className={`bg-orange-500 block transition-all duration-300 ease-out 
+        <span className={`bg-white block transition-all duration-300 ease-out 
                         h-1 w-6 rounded-sm ${isOpen ? 
                         'rotate-45 translate-y-1' : '-translate-y-0.5'
                         }`} >
         </span>
-        <span className={`bg-orange-500 block transition-all duration-300 ease-out 
+        <span className={`bg-white block transition-all duration-300 ease-out 
                         h-1 w-6 rounded-sm my-0.5 ${isOpen ? 
                         'opacity-0' : 'opacity-100'
                         }`} >
         </span>
-        <span className={`bg-orange-500 block transition-all duration-300 ease-out 
+        <span className={`bg-white block transition-all duration-300 ease-out 
                         h-1 w-6 rounded-sm ${isOpen ? 
                         '-rotate-45 -translate-y-1' : 'translate-y-0.5'
                         }`}>
