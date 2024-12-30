@@ -38,7 +38,7 @@ const About = () => {
     >
         <div className={"flex flex-col md:flex-row "}>
               <div className="flex-1 py-4 px-12">
-                <p className="text-white">Kingswood Public School is affiliated with the CBSE board and is dedicated to fostering excellence in education from nursery through to 8th grade. Operated with a commitment to holistic learning and managed by a team of experienced educators, Kingswood Public School aims to nurture students' intellectual and personal growth. The institution is guided by a philosophy of quality education, blending modern teaching methods with strong ethical values to prepare students for a bright future.</p>
+                <p className="text-white">Kingswood Public School is affiliated with the CBSE board and is dedicated to fostering excellence in education from nursery through to 8th grade. Operated with a commitment to holistic learning and managed by a team of experienced educators, Kingswood Public School aims to nurture students intellectual and personal growth. The institution is guided by a philosophy of quality education, blending modern teaching methods with strong ethical values to prepare students for a bright future.</p>
               </div>
               <div className="w-full flex-1">
                 <Image width={500} src={schoolAbout} alt="schoolAbout" />
