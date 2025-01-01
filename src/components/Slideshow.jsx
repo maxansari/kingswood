@@ -11,6 +11,10 @@ import school1 from "../../public/assets/temp/school3.jpg";
 import Image from 'next/image';
 import school2 from "../../public/assets/temp/school4.jpg";
 import school3 from "../../public/assets/temp/school5.jpg";
+import thum2 from "../../public/assets/school/thum2.jpeg"
+import thum4 from "../../public/assets/school/thum4.jpeg"
+import thum7 from "../../public/assets/school/thum7.jpg"
+import thum9 from "../../public/assets/school/thum9.jpg"
 
 
 const Slideshow = () => {
@@ -24,21 +28,26 @@ const Slideshow = () => {
       onSwiper={(swiper) => console.log(swiper)}
       effect="fade"
       autoplay={{ delay: 3000 }}
-      className='w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[500px] mx-auto'
+      className='w-full h-[200px] stackDown sm:h-[250px] md:h-[400px] lg:h-[500px] mx-auto'
     >
-      <SwiperSlide>
-        <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain' src={school1} alt="school1"  />
+      <SwiperSlide >
+        <div className='flex justify-center  items-center h-full'>
+          <Image className='object-contain -z-10' src={thum2} alt="school1"  />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain' src={school2} alt="school2"  />
+          <Image className='object-contain -z-10' src={thum4} alt="school2"  />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain' src={school3} alt="school3"  />
+          <Image className='object-contain' src={thum7} alt="school3"  />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className='flex justify-center items-center h-full'>
+          <Image className='object-contain' src={thum9} alt="school3"  />
         </div>
       </SwiperSlide>
     </Swiper>

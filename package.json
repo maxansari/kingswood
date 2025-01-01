@@ -2,7 +2,7 @@
   "name": "kingswood",
   "version": "0.1.0",
   "private": true,
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@lordicon/react": "^1.10.0",
     "@lottiefiles/react-lottie-player": "^3.5.4",
+    "emailjs-com": "^3.2.0",
     "flowbite-react": "^0.10.2",
     "framer-motion": "^11.15.0",
     "lottie-react": "^2.4.0",
@@ -25,7 +26,8 @@
     "react-lottie": "^1.2.4",
     "react-photo-collage": "^1.0.9",
     "styled-components": "^6.1.13",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "twilio": "^5.4.0"
   },
   "devDependencies": {
     "eslint": "^8",
