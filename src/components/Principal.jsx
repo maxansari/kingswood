@@ -38,7 +38,7 @@ const controls = useAnimation();
             >
             <div className="flex flex-col md:flex-row gap-4 mt-8">
               <div className="flex-[2] flex justify-end items-start w-full p-4 text-left px-12">
-              <p>With a determination to once again embark upon the mission of excellence and well prepared with the supreme art to inspire hope, ignite the imagination and to instil joy in creative expression and knowledge, we all, at KPS Bulandshahr extend to you a warm welcome for the new session 2023-2024.</p>
+              <p>With a determination to once again embark upon the mission of excellence and well prepared with the supreme art to inspire hope, ignite the imagination and to instil joy in creative expression and knowledge, we all, at KPS Bulandshahr extend to you a warm welcome for the new session 2025-2026.</p>
               </div>
               <div className="flex-[1] px-8 mr-12 mb-4 flex justify-center items-center">
                 <Image className="rounded-full" width={200} src={chairman} alt="pricipal" />

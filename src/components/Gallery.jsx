@@ -6,8 +6,11 @@ import thum2 from "../../public/assets/school/thum2.jpeg";
 import thum3 from "../../public/assets/school/thum3.jpeg";
 import thum4 from "../../public/assets/school/thum4.jpeg";
 import thum5 from "../../public/assets/school/thum5.jpeg";
+import { useRouter } from "next/navigation";
 
 const Gallery = () => {
+
+    const router = useRouter();
 
 
     return (
@@ -57,7 +60,9 @@ const Gallery = () => {
         className="object-cover"
       />
     </div>
-      <button className="bg-teal-500 text-white font-bold">Go To Gallery-&gt;</button>
+      <button 
+      onClick={()=>router.push('/gallery')}
+      className="bg-teal-500 text-white font-bold">Go To Gallery-&gt;</button>
       
   </div>
       </div>
