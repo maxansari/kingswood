@@ -23,7 +23,7 @@ const about = () => {
                 transition={{ duration: 1 }}
                 className="flex flex-col w-[80%] mx-auto mt-10 justify-center md:flex-row ">
                 <div className="flex-1 flex relative justify-end py-4 px-4">
-                    <p className="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p className="">Welcome to Kingswood Public School, a CBSE-affiliated institution committed to fostering academic excellence and holistic development. Catering to students from Nursery to Grade 8, we provide a nurturing and stimulating environment where young minds thrive and grow. At Kingswood, we believe education goes beyond textbooks. Our experienced educators employ modern teaching methodologies while upholding strong ethical values to shape well-rounded individuals. With a focus on intellectual curiosity, creativity, and personal growth, we aim to prepare our students for the challenges of tomorrow.</p>
                 </div>
                 <div className="w-full flex-1 flex justify-center">
                     <Image width={300} src={bookRead} alt="schoolAbout" />
@@ -33,12 +33,12 @@ const about = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 1 }} 
-                className="flex flex-col w-[80%] mx-auto mt-10 justify-center md:flex-row ">
+                className="flex flex-col-reverse w-[80%] mx-auto mt-10 justify-center md:flex-row ">
                 <div className="w-full flex-1 flex justify-center ">
                     <Image width={500} src={scene} alt="schoolAbout" />
                 </div>
                 <div className="flex-1 flex justify-end py-4 px-4">
-                    <p className="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p className="">Our philosophy emphasizes quality education that balances academic rigor with extracurricular opportunities, encouraging students to explore their potential and build a strong foundation for their future endeavors. Join us on this journey of learning and growth, where every child is empowered to excel and achieve their dreams. Together, we nurture bright minds and inspire lifelong learners.</p>
                 </div>
                 </motion.div>
             </div>

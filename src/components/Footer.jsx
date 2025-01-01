@@ -18,12 +18,13 @@ const Footer = () => {
                  <div>
                     <h1>Reach Us</h1>
                     <div className="px-4">
-                    <p>Kingswood Public School, 
+                    <p>Address:Kingswood Public School, 
                         Delhi Road,
                         Bulandshahr(UP)</p>
                     <p>Pin Code: 203001</p>
-                    <p>+918057373726</p>
-                    <p>kingswoodpublicbsr@gmail.com</p>
+                    <p>Phone1: +918057373726</p>
+                    <p>Phone2: +919758880880</p>
+                    <p>Email: kingswoodpublicbsr@gmail.com</p>
                     </div>
                 </div>
                  <div>
