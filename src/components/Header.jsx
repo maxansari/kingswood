@@ -1,4 +1,4 @@
-"use strict"
+"use client"
 import Anouncement from "@/components/Anouncement";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
@@ -6,8 +6,11 @@ import { FaPhoneAlt } from "react-icons/fa";
 import logo from "../../public/assets/logo.png";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+
+    const router = useRouter();
 
     return (
         <>
@@ -30,7 +33,10 @@ const Header = () => {
     <div className="md:w-[100px] w-[80px] flex items-center">
     <Image src={logo} alt="logo" width={100}/>
     </div>
-    <div className="flex flex-col justify-center ">
+    <div 
+        onClick={()=>router.push('/')}
+        className="cursor-pointer flex flex-col justify-center"
+    >
     <h1 className="text-sm md:text-xl lg:text-2xl font-bold text-teal-800">Kingswood Public School</h1>
     <p className="text-teal-700">Bulandshahr</p>
     </div>
