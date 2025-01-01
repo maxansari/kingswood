@@ -4,7 +4,7 @@ import Image from "next/image";
 import Slideshow from "@/components/Slideshow";
 import About from "@/components/About";
 import headingLine from '../../public/assets/underline.png';
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Gallery from "@/components/Gallery";
 
