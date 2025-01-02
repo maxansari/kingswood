@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import underLine from "../../../public/assets/underline.png";
@@ -15,7 +16,38 @@ import thum9 from "../../../public/assets/school/thum9.jpg";
 import thum10 from "../../../public/assets/school/thum10.jpeg";
 import thum11 from "../../../public/assets/school/thum11.jpeg";
 
+const images = [
+  { src: thum10, alt: "Image 10" },
+  { src: thum11, alt: "Image 11" },
+  { src: thum1, alt: "Image 1" },
+  { src: thum2, alt: "Image 2" },
+  { src: thum3, alt: "Image 3" },
+  { src: thum4, alt: "Image 4" },
+  { src: thum5, alt: "Image 5" },
+  { src: thum6, alt: "Image 6" },
+  { src: thum7, alt: "Image 7" },
+  { src: thum8, alt: "Image 8" },
+  { src: thum9, alt: "Image 9" },
+];
+
 const Gallery = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8; // Images per page
+  const totalPages = Math.ceil(images.length / itemsPerPage);
+
+  const currentImages = images.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (direction) => {
+    if (direction === "prev" && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    } else if (direction === "next" && currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -26,22 +58,49 @@ const Gallery = () => {
       <div className="flex justify-center mx-auto">
         <div className="w-[80%]">
           <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
-            {[thum10,thum11,thum1, thum2, thum3, thum4, thum5, thum6, thum7, thum8, thum9].map((thumb, index) => (
+            {currentImages.map((img, index) => (
               <div
                 key={index}
                 className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden"
               >
-                {/* Open image in browser viewer */}
-                <a href={thumb.src} target="_blank" rel="noopener noreferrer">
+                <a href={img.src.src} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={thumb}
-                    alt={`Gallery Image ${index + 1}`}
+                    src={img.src}
+                    alt={img.alt}
                     fill
                     className="object-cover"
                   />
                 </a>
               </div>
             ))}
+          </div>
+          {/* Pagination Controls */}
+          <div className="flex justify-center mt-6 space-x-4">
+            <button
+              onClick={() => handlePageChange("prev")}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded ${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-teal-500 text-white"
+              }`}
+            >
+              Previous
+            </button>
+            <span className="px-4 py-2 rounded bg-gray-200">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={() => handlePageChange("next")}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 rounded ${
+                currentPage === totalPages
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-teal-500 text-white"
+              }`}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
