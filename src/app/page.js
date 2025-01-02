@@ -38,8 +38,6 @@ export default function Home() {
 
           <div className="mt-4 relative w-full">
         
-          <h1 className="text-white roboto text-center md:text-left">About KPS</h1>
-          <Image className="mx-auto md:mx-0" src={headingLine} alt="heading line" width={300} height={20}/>
             <About/>
             
           </div>
@@ -60,10 +58,7 @@ export default function Home() {
     </div>
     <div className="w-full">
 
-        <div className="w-[80%] mx-auto relative">
-            
-            <h1 className="mt-8 mr-32 text-right">Chairman&apos;s Desk</h1>
-            <Image className="absolute right-[100px]" src={headingLine} alt="heading line" width={300} height={20}/>
+        <div className="w-[80%] mx-auto flex flex-col relative">
 
           <Principal/>
          

@@ -3,6 +3,8 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y,Autoplay } from 'swiper/modules';
+import { shimmer, toBase64 } from '../utils/shimmer';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -45,11 +47,14 @@ const Slideshow = () => {
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <div className="flex justify-center items-center h-full">
-            <Image
+          <Image
               className="object-contain"
               src={image.src}
               alt={image.alt}
-              priority
+              placeholder="blur" // Enable blur effect
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                shimmer(700, 475)
+              )}`} // Replace with shimmer effect
             />
           </div>
         </SwiperSlide>

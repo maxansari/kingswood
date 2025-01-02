@@ -1,4 +1,5 @@
 "use client"
+import {useEffect, useState} from "react";
 import Anouncement from "@/components/Anouncement";
 import { FaFacebookF } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
@@ -7,10 +8,19 @@ import logo from "../../public/assets/logo.png";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Header = () => {
 
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
+
+    // Simulate a loading period
+    useEffect(() => {
+      const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second load
+      return () => clearTimeout(timer);
+    }, []);
 
     return (
         <>
@@ -31,7 +41,11 @@ const Header = () => {
    <div className="w-[80%]  md:p-4 flex justify-between">
     <div className="flex gap-4">
     <div className="md:w-[100px] w-[80px] flex items-center">
-    <Image src={logo} alt="logo" width={100}/>
+    {loading ? (
+      <Skeleton circle className="object-cover" width={100} height={100} />
+    ) : (
+      <Image src={logo} alt="logo" width={100}/>
+    )}
     </div>
     <div 
         onClick={()=>router.push('/')}
