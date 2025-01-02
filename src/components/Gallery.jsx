@@ -1,11 +1,11 @@
 "use client"
 import Image from "next/image";
 import headingLine from "../../public/assets/underline.png";
-import thum1 from "../../public/assets/school/thum11.jpeg";
-import thum2 from "../../public/assets/school/thum10.jpeg";
-import thum3 from "../../public/assets/school/thum3.jpeg";
-import thum4 from "../../public/assets/school/thum4.jpeg";
-import thum5 from "../../public/assets/school/thum5.jpeg";
+import thum1 from "../../public/assets/school/thum18.jpeg";
+import thum2 from "../../public/assets/school/thum17.jpeg";
+import thum3 from "../../public/assets/school/thum16.jpeg";
+import thum4 from "../../public/assets/school/thum15.jpeg";
+import thum5 from "../../public/assets/school/thum14.jpeg";
 import { useRouter } from "next/navigation";
 
 const Gallery = () => {

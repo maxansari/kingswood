@@ -15,8 +15,22 @@ import thum8 from "../../../public/assets/school/thum8.jpg";
 import thum9 from "../../../public/assets/school/thum9.jpg";
 import thum10 from "../../../public/assets/school/thum10.jpeg";
 import thum11 from "../../../public/assets/school/thum11.jpeg";
+import thum12 from "../../../public/assets/school/thum12.jpeg";
+import thum13 from "../../../public/assets/school/thum13.jpeg";
+import thum14 from "../../../public/assets/school/thum14.jpeg";
+import thum15 from "../../../public/assets/school/thum15.jpeg";
+import thum16 from "../../../public/assets/school/thum16.jpeg";
+import thum17 from "../../../public/assets/school/thum17.jpeg";
+import thum18 from "../../../public/assets/school/thum18.jpeg";
 
 const images = [
+  { src: thum12, alt: "Image 12" },
+  { src: thum13, alt: "Image 13" },
+  { src: thum14, alt: "Image 14" },
+  { src: thum15, alt: "Image 15" },
+  { src: thum16, alt: "Image 16" },
+  { src: thum17, alt: "Image 17" },
+  { src: thum18, alt: "Image 18" },
   { src: thum10, alt: "Image 10" },
   { src: thum11, alt: "Image 11" },
   { src: thum1, alt: "Image 1" },
