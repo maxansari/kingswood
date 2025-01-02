@@ -15,7 +15,7 @@ import thum2 from "../../public/assets/school/thum2.jpeg"
 import thum4 from "../../public/assets/school/thum4.jpeg"
 import thum7 from "../../public/assets/school/thum7.jpg"
 import thum9 from "../../public/assets/school/thum9.jpg"
-
+import thum10 from "../../public/assets/school/thum10.jpeg"
 
 const Slideshow = () => {
 
@@ -32,22 +32,27 @@ const Slideshow = () => {
     >
       <SwiperSlide >
         <div className='flex justify-center  items-center h-full'>
-          <Image className='object-contain -z-10' src={thum2} alt="school1"  />
+          <Image className='object-contain -z-10' src={thum10} alt="thum10"  />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide >
+        <div className='flex justify-center  items-center h-full'>
+          <Image className='object-contain -z-10' src={thum2} alt="thum2"  />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain -z-10' src={thum4} alt="school2"  />
+          <Image className='object-contain -z-10' src={thum4} alt="thum4"  />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain' src={thum7} alt="school3"  />
+          <Image className='object-contain' src={thum7} alt="thum7"  />
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className='flex justify-center items-center h-full'>
-          <Image className='object-contain' src={thum9} alt="school3"  />
+          <Image className='object-contain' src={thum9} alt="thum9"  />
         </div>
       </SwiperSlide>
     </Swiper>

@@ -12,6 +12,8 @@ import thum6 from "../../../public/assets/school/thum6.jpeg";
 import thum7 from "../../../public/assets/school/thum7.jpg";
 import thum8 from "../../../public/assets/school/thum8.jpg";
 import thum9 from "../../../public/assets/school/thum9.jpg";
+import thum10 from "../../../public/assets/school/thum10.jpeg";
+import thum11 from "../../../public/assets/school/thum11.jpeg";
 
 const Gallery = () => {
   return (
@@ -24,7 +26,7 @@ const Gallery = () => {
       <div className="flex justify-center mx-auto">
         <div className="w-[80%]">
           <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
-            {[thum1, thum2, thum3, thum4, thum5, thum6, thum7, thum8, thum9].map((thumb, index) => (
+            {[thum10,thum11,thum1, thum2, thum3, thum4, thum5, thum6, thum7, thum8, thum9].map((thumb, index) => (
               <div
                 key={index}
                 className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden"
