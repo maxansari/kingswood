@@ -20,6 +20,24 @@ const Navbar = () => {
         else if(path=='/contact'){
             setActive(4);
         }
+        else if(path=='/gallery'){
+            setActive(3);
+        }
+
+    }, []);
+
+    useEffect(() => {
+        if(path=='/'){
+            setActive(0);
+        }else if(path=='/about'){
+            setActive(1);
+        }
+        else if(path=='/contact'){
+            setActive(4);
+        }
+        else if(path=='/gallery'){
+            setActive(3);
+        }
     }, [path]);
 
     const [isOpen, setIsOpen] = useState(false);
