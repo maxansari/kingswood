@@ -22,8 +22,8 @@ const Header = () => {
          <FaYoutube color="#FF0000"/>
         <div className="flex items-center gap-4">
         <FaPhoneAlt color="#fff"/>
-        <span className="text-white">+919758880880</span>
         <span className="text-white">+918057373726</span>
+        <span className="text-white">+919758880880</span>
         </div>
         </div>
    </div>
