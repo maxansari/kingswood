@@ -1,5 +1,7 @@
 "use client"
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
@@ -24,6 +26,14 @@ const Contact = () => {
         contact: "",
         message: "",
       });
+
+      const [loading, setLoading] = useState(true);
+
+        // Simulate a loading period
+        useEffect(() => {
+            const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second load
+            return () => clearTimeout(timer);
+        }, []);
 
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -62,7 +72,44 @@ const Contact = () => {
         <>
         
         <Header />
-        {!sent?<div className="relative w-full overflow-hidden">
+
+
+        {!sent&&loading?
+
+        <div className="relative w-full overflow-hidden">
+        <div className="min-w-[200px] absolute top-1/4 left-1/2 md:left-1/2 -z-1000">
+            <Skeleton width={200} height={200} />
+        </div>
+        <div className="w-full z-10 flex justify-center flex-col items-center">
+            <Skeleton width={200} height={30} />
+            <Skeleton width={200} height={30} />
+        </div>
+        <div className="w-full flex justify-center mx-auto mt-10">
+            <div className="z-10 flex p-4 mb-10 md:p-0 w-full justify-center md:min-w-[400px] md:max-w-[600px] flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                    <Skeleton width={200} height={30} />
+                    <Skeleton width={200} height={30} />
+                </div>
+                <div className="flex flex-col gap-2">
+                    <Skeleton width={200} height={30} />
+                    <Skeleton width={200} height={30} />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <Skeleton width={200} height={30} />
+                    <Skeleton width={200} height={30} />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <Skeleton width={200} height={30} />
+                    <Skeleton width={200} height={30} />
+                </div>
+                <Skeleton width={200} height={30} />
+            </div>
+        </div>
+        </div>
+
+        :!sent&&!loading?<div className="relative w-full overflow-hidden">
         <motion.div 
         initial={{opacity: 0, y: -100}}
         transition={{duration: 0.7}}
@@ -142,7 +189,15 @@ const Contact = () => {
                     type="submit" className="bg-teal-700 hover:bg-teal-500 active:bg-teal-700 max-w-[600px] text-white py-2 rounded-md">Submit</button>
                 </form>
             </motion.div>
-            </div>:
+            </div>:sent&&loading?
+            
+            <div className="w-full flex justify-center items-center flex-col">
+                <Skeleton width={150} />
+                <Skeleton width={200} />
+            </div>
+            
+
+            :
             <div className="w-full flex justify-center items-center flex-col">
             <motion.div
             initial={{opacity: 0, y: -100}}
@@ -163,7 +218,28 @@ const Contact = () => {
             </motion.div>
         </div>
             }
+            
+            
+            {loading?
             <div className="w-full flex flex-col justify-center items-center">
+                <Skeleton width={150} />
+            <div className="flex flex-col p-4 w-full justify-center items-center md:flex-row gap-2">
+                <div className="w-full sm:w-[300px] p-4 rounded-md shadow-lg border-2 py-8">
+                    <Skeleton circle={true} height={70} width={70}/>
+                    <Skeleton width={100} height={30}/>
+                    <Skeleton width={100} height={30}/>
+                    <Skeleton width={100} height={30}/>
+                </div>
+                <div className="w-full sm:w-[300px] p-4 rounded-md shadow-lg border-2 py-8">
+                    <Skeleton circle={true} height={70} width={70}/>
+                    <Skeleton width={100} height={30}/>
+                    <Skeleton width={100} height={30}/>
+                    <Skeleton width={100} height={30}/>
+                </div>
+                </div>
+                </div>
+            
+            :<div className="w-full flex flex-col justify-center items-center">
             <h1 className="">Contact Numbers</h1>
             <div className="flex flex-col p-4 w-full justify-center items-center md:flex-row gap-2">
                 <div className="w-full sm:w-[300px] p-4 rounded-md shadow-lg border-2 py-8">
@@ -179,7 +255,7 @@ const Contact = () => {
                 </div>
 
             </div>
-            </div>
+            </div>}
         <Footer />
         </>
     )

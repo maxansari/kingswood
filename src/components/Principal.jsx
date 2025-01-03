@@ -47,14 +47,14 @@ const controls = useAnimation();
   loading ? (
     <Skeleton className="mt-8 ml-auto mr-32" width={200} height={30} style={{display:'block'}} />
   ) : (
-    <h1 className="mt-8 ml-auto mr-32 text-right">Chairman&apos;s Desk</h1>
+    <h1 className="mt-8 ml-auto mr-32 text-xl sm:text-3xl md:text-4xl text-right">Chairman&apos;s Desk</h1>
   )
 }
      
   {loading ?
     <Skeleton className="ml-auto mr-20" width={300} height={20} style={{display:'block'}} />
      :
-     <Image className="ml-auto mr-20" src={headingLine} alt="heading line" width={300} height={20}/>
+     <Image className="ml-auto mr-32 w-[150px] sm:w-[180px] md:w-[200px] lg-[250px]" src={headingLine} alt="heading line" />
 }
        
 

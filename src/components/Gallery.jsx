@@ -30,8 +30,8 @@ const Gallery = () => {
         <>
                 <div className="flex justify-center">
     <div className="w-[80%]">
-      <h1>{loading?<Skeleton width={150}/> : "Gallery" }</h1>
-      {loading?<Skeleton width={300} height={20} />:<Image src={headingLine} alt="heading line" width={300} height={20}/>}
+      <h1 className="text-xl sm:text-3xl md:text-4xl">{loading?<Skeleton width={150}/> : "Gallery" }</h1>
+      {loading?<Skeleton width={300} height={20} />:<Image className="w-[150px] sm:w-[180px] md:w-[200px] lg-[250px]" src={headingLine} alt="heading line" />}
         <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
         {[thum1, thum2, thum3, thum4, thum5].map((img, index) => (
           loading ? (

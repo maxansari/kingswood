@@ -54,8 +54,8 @@ const About = () => {
         </div>
       ) : (
         <div>
-                  <h1 className="text-white roboto text-center md:text-left">About KPS</h1>
-                  <Image className="mx-auto md:mx-0" src={headingLine} alt="heading line" width={300} height={20}/>
+                  <h1 className="text-white roboto text-center text-xl sm:text-3xl md:text-4xl md:text-left">About KPS</h1>
+                  <Image className="mx-auto md:mx-0 w-[150px] sm:w-[180px] md:w-[200px] lg-[250px]" src={headingLine} alt="heading line"/>
         <motion.div
           ref={ref} // Attach ref to observe this element
           initial="hidden" // Initial state before animation starts
