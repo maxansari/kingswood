@@ -1,7 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 import underLine from "../../../public/assets/underline.png";
 import Image from "next/image";
 import thum1 from "../../../public/assets/school/thum1.jpeg";
@@ -48,6 +51,13 @@ const Gallery = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8; // Images per page
   const totalPages = Math.ceil(images.length / itemsPerPage);
+  const [loading, setLoading] = useState(true);
+
+  // Simulate a loading period
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second load
+    return () => clearTimeout(timer);
+  }, []);
 
   const currentImages = images.slice(
     (currentPage - 1) * itemsPerPage,
@@ -65,7 +75,35 @@ const Gallery = () => {
   return (
     <>
       <Header />
+      
+      
+      {loading?
+      <>
       <div className="w-full flex justify-center flex-col items-center">
+        <Skeleton width={150} height={20} />
+        <Skeleton width={200} height={20} />
+      </div>
+
+        <div className="flex justify-center mx-auto">
+          <div className="w-[80%]">
+            <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
+              {[thum12, thum11, thum13, thum14, thum15,thum16,thum17,thum18].map((img, index) => (
+                <div
+                  key={index}
+                  className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden"
+                >
+                  <Skeleton className="object-cover h-[200px]" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+
+
+      </>
+      
+      :<><div className="w-full flex justify-center flex-col items-center">
         <h1 className="text-center mt-10">Gallery</h1>
         <Image className="ali" src={underLine} alt="underline" width={200} />
       </div>
@@ -117,7 +155,7 @@ const Gallery = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div></>}
       <Footer />
     </>
   );

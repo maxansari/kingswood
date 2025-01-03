@@ -42,7 +42,7 @@ const Header = () => {
     <div className="flex gap-4">
     <div className="md:w-[100px] w-[80px] flex items-center">
     {loading ? (
-      <Skeleton circle className="object-cover" width={100} height={100} />
+      <Skeleton circle className="object-cover" width={70} height={70} />
     ) : (
       <Image src={logo} alt="logo" width={100}/>
     )}
