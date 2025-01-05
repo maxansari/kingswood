@@ -1,6 +1,6 @@
-export const sitemap = {
-    siteUrl: 'https://www.kingswoodpublicschool.in', // Replace with your site's URL
-    generateRobotsTxt: true,          // Generate a robots.txt file
+const sitemap = {
+  siteUrl: 'http://localhost:3000', // Replace with your site's URL
+  generateRobotsTxt: true,          // Generate a robots.txt file
   changefreq: 'daily',              // Update frequency of the pages
   priority: 0.7,                    // Default priority of the pages
   exclude: [],                      // Pages to exclude (if any)
@@ -12,5 +12,6 @@ export const sitemap = {
       { loc: '/gallery', changefreq: 'daily', priority: 0.9 },
     ];
   },
-  };
-  
+};
+
+export default sitemap;

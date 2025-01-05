@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-sitemap": "next-sitemap"
   },
   "dependencies": {
     "@lordicon/react": "^1.10.0",
