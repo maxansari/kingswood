@@ -244,13 +244,13 @@ const Contact = () => {
             <div className="flex flex-col p-4 w-full justify-center items-center md:flex-row gap-2">
                 <div className="w-full sm:w-[300px] p-4 rounded-md shadow-lg border-2 py-8">
                     <Image src={umesh} alt="umesh" className="rounded-full" width={70}/>
-                    <h3 className="">Umesh</h3>
+                    <h3 className="">Umesh Sir</h3>
                     <p className="text-xl font-semibold">Principal</p>
                     <p className="text-xl font-semibold">+918057373726</p>
                 </div>
                 <div className="w-full sm:w-[300px] p-4 rounded-md shadow-lg border-2 py-8">
                     <Image src={farid} alt="farid" className="rounded-full" width={70}/>
-                    <h3 className="">Farid Ansari</h3>
+                    <h3 className="">Farid Ansari Sir</h3>
                     <p className="text-xl font-semibold">+919758880880</p>
                 </div>
 
