@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-
-import Image from "next/image";
+import {db} from '../../libs/firebaseConfig';
+import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';import Image from "next/image";
 import headingLine from "../../public/assets/underline.png";
 import thum1 from "../../public/assets/school/thum18.jpeg";
 import thum2 from "../../public/assets/school/thum17.jpeg";
@@ -19,12 +19,38 @@ const Gallery = () => {
     const router = useRouter();
 
     const [loading, setLoading] = useState(true);
+    const [images, setImages] = useState([]);
+
+
 
     // Simulate a loading period
     useEffect(() => {
       const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second load
       return () => clearTimeout(timer);
     }, []);
+
+// get top 5 images from the database
+
+  const getImages = async () => {
+    try{
+    const imagesCollection = collection(db, 'gallery');
+    const imagesQuery = query(imagesCollection, orderBy('uploadedAt', 'desc'), limit(5));
+    const querySnapshot = await getDocs(imagesQuery);
+    const imagesList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    setImages(imagesList);
+    console.log(imagesList);
+    }catch(err){
+      console.log(err);
+    }
+
+  };
+
+    useEffect(() => {
+      getImages();
+    }
+    ,[]);
+
+
 
     return (
         <>
@@ -33,7 +59,7 @@ const Gallery = () => {
       <h1 className="text-xl sm:text-3xl md:text-4xl">{loading?<Skeleton width={150}/> : "Gallery" }</h1>
       {loading?<Skeleton width={300} height={20} />:<Image className="w-[150px] sm:w-[180px] md:w-[200px] lg-[250px]" src={headingLine} alt="heading line" />}
         <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
-        {[thum1, thum2, thum3, thum4, thum5].map((img, index) => (
+        {images.map((img, index) => (
           loading ? (
             <div key={index} className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden">
             <Skeleton key={index} className="object-cover h-[200px]" />
@@ -41,7 +67,7 @@ const Gallery = () => {
           ) : (
             <div key={index} className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden">
               <Image
-                src={img}
+                src={img.image_url}
                 alt={`Thumbnail ${index + 1}`}
                 fill
                 className="object-cover"

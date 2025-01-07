@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { db } from "../../../libs/firebaseConfig";
+import { collection, getDocs,query,doc,limit,orderBy } from "firebase/firestore";
 
 import underLine from "../../../public/assets/underline.png";
 import Image from "next/image";
@@ -26,32 +28,51 @@ import thum16 from "../../../public/assets/school/thum16.jpeg";
 import thum17 from "../../../public/assets/school/thum17.jpeg";
 import thum18 from "../../../public/assets/school/thum18.jpeg";
 
-const images = [
-  { src: thum12, alt: "Image 12" },
-  { src: thum13, alt: "Image 13" },
-  { src: thum14, alt: "Image 14" },
-  { src: thum15, alt: "Image 15" },
-  { src: thum16, alt: "Image 16" },
-  { src: thum17, alt: "Image 17" },
-  { src: thum18, alt: "Image 18" },
-  { src: thum10, alt: "Image 10" },
-  { src: thum11, alt: "Image 11" },
-  { src: thum1, alt: "Image 1" },
-  { src: thum2, alt: "Image 2" },
-  { src: thum3, alt: "Image 3" },
-  { src: thum4, alt: "Image 4" },
-  { src: thum5, alt: "Image 5" },
-  { src: thum6, alt: "Image 6" },
-  { src: thum7, alt: "Image 7" },
-  { src: thum8, alt: "Image 8" },
-  { src: thum9, alt: "Image 9" },
-];
+// const images = [
+//   { src: thum12, alt: "Image 12" },
+//   { src: thum13, alt: "Image 13" },
+//   { src: thum14, alt: "Image 14" },
+//   { src: thum15, alt: "Image 15" },
+//   { src: thum16, alt: "Image 16" },
+//   { src: thum17, alt: "Image 17" },
+//   { src: thum18, alt: "Image 18" },
+//   { src: thum10, alt: "Image 10" },
+//   { src: thum11, alt: "Image 11" },
+//   { src: thum1, alt: "Image 1" },
+//   { src: thum2, alt: "Image 2" },
+//   { src: thum3, alt: "Image 3" },
+//   { src: thum4, alt: "Image 4" },
+//   { src: thum5, alt: "Image 5" },
+//   { src: thum6, alt: "Image 6" },
+//   { src: thum7, alt: "Image 7" },
+//   { src: thum8, alt: "Image 8" },
+//   { src: thum9, alt: "Image 9" },
+// ];
 
 const Gallery = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [images, setImages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 8; // Images per page
   const totalPages = Math.ceil(images.length / itemsPerPage);
   const [loading, setLoading] = useState(true);
+
+  const fetchImages = async () => { 
+    try {
+      const imagesCollection = collection(db, "gallery");
+      const imagesQuery = query(imagesCollection, orderBy("uploadedAt", "desc"), limit(itemsPerPage));
+      const querySnapshot = await getDocs(imagesQuery);
+      const imagesList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setImages(imagesList);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+
 
   // Simulate a loading period
   useEffect(() => {
@@ -87,7 +108,7 @@ const Gallery = () => {
         <div className="flex justify-center mx-auto">
           <div className="w-[80%]">
             <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
-              {[thum12, thum11, thum13, thum14, thum15,thum16,thum17,thum18].map((img, index) => (
+              {images.map((img, index) => (
                 <div
                   key={index}
                   className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden"
@@ -110,14 +131,14 @@ const Gallery = () => {
       <div className="flex justify-center mx-auto">
         <div className="w-[80%]">
           <div className="grid grid-cols-2 mt-10 md:grid-cols-4 gap-4">
-            {currentImages.map((img, index) => (
+            {images.map((img, index) => (
               <div
                 key={index}
                 className="relative w-full h-0 pb-[100%] rounded-lg overflow-hidden"
               >
-                <a href={img.src.src} target="_blank" rel="noopener noreferrer">
+                <a href={img.image_url.src} target="_blank" rel="noopener noreferrer">
                   <Image
-                    src={img.src}
+                    src={img.image_url}
                     alt={img.alt}
                     fill
                     className="object-cover"

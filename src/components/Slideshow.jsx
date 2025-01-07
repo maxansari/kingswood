@@ -1,5 +1,7 @@
 "use client";
-
+import { useEffect, useState } from "react";
+import { db } from "../../libs/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y,Autoplay } from 'swiper/modules';
@@ -33,6 +35,31 @@ const images = [
 ];
 
 const Slideshow = () => {
+
+  const [loading, setLoading] = useState(true);
+  const [slides, setSlides] = useState([]);
+
+  // Simulate a loading period
+  useEffect(() => {
+      const timer = setTimeout(() => setLoading(false), 2000); // Simulate a 2-second load
+      return () => clearTimeout(timer);
+  }, []);
+
+  const getSlides = async () => {
+          const slidesCol = collection(db, 'slideshow');
+          const slidesSnapshot = await getDocs(slidesCol);
+          const slidesList = slidesSnapshot.docs.map(doc => doc.data());
+          setSlides(slidesList);
+      }
+
+  useEffect(() => {
+    getSlides();
+  }
+  ,[]);
+
+
+
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
@@ -44,17 +71,18 @@ const Slideshow = () => {
       autoplay={{ delay: 3000 }}
       className="w-full h-[200px] sm:h-[250px] md:h-[400px] lg:h-[500px] mx-auto"
     >
-      {images.map((image, index) => (
+      {slides.map((image, index) => (
         <SwiperSlide key={index}>
           <div className="flex justify-center items-center h-full">
           <Image
               className="object-contain"
-              src={image.src}
-              alt={image.alt}
+              src={image.image_url}
+              alt={image.public_id}
               placeholder="blur" // Enable blur effect
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
                 shimmer(700, 475)
               )}`} // Replace with shimmer effect
+             fill
             />
           </div>
         </SwiperSlide>
